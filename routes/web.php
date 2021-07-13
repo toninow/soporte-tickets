@@ -51,6 +51,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('comments/destroy', 'CommentsController@massDestroy')->name('comments.massDestroy');
     Route::resource('comments', 'CommentsController');
 
+    Route::get('/foo', function () {
+        Artisan::call('storage:link');
+        });
+
     // Audit Logs
     Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
 });

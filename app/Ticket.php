@@ -72,6 +72,7 @@ class Ticket extends Model implements HasMedia
     }
 
     public function priority()
+    
     {
         return $this->belongsTo(Priority::class, 'priority_id');
     }
