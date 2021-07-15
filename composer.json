@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "spatie/laravel-medialibrary": "^8.7",
-        "yajra/laravel-datatables-oracle": "^9.6"
+        "yajra/laravel-datatables-oracle": "^9.6",
+        "ext-gd": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
