@@ -31,7 +31,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="author_email" class="col-md-4 col-form-label text-md-right">Correo                        <div class="col-md-6">
+                            <label for="author_email" class="col-md-4 col-form-label text-md-right">Correo</label>
+
+                            <div class="col-md-6">
                                 <input id="author_email" type="email" class="form-control @error('author_email') is-invalid @enderror" name="author_email" value="{{ old('author_email') }}" required autocomplete="email">
 
                                 @error('author_email')
