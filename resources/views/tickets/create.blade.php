@@ -11,9 +11,11 @@
     <meta content="Sistema automatizado para atención de tickets de señores y señoritas aspirantes/estudiantes Yavirac. "
         name="description">
     <meta content="nombre y apellido, correo, asunto, detalle" name="keywords">
+
 @endsection
 @section('content')
     <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-10">
                 @if (session('status'))

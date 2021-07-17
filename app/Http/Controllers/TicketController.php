@@ -8,6 +8,7 @@ use App\Notifications\CommentEmailNotification;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use UxWeb\SweetAlert\SweetAlert;
 
 
 class TicketController extends Controller
@@ -52,9 +53,11 @@ class TicketController extends Controller
         foreach ($request->input('attachments', []) as $file) {
             $ticket->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('attachments');
         }
-
-        return redirect()->back()->withStatus('Tu ticket ha sido enviado, muy pronto nos comunicaremos contigo. puedes ver el estado de tu ticket <a href="'.route('tickets.show', $ticket->id).'">aqui</a>');
-        //return redirect()->back()->with('eliminar ', '<a href="'.route('tickets.show', $ticket->id).'">aqui</a>');
+        alert()->success( 'Tu ticket es el N°: '.$ticket->id, '¡Enhorabuena! '.$ticket->author_name.', ahora puedes ver el estado de tu requerimiento')->autoclose(7000);
+        //redirect()->with('success', 'Tu ticket ha sido enviado, puedes ver el estado de tu ticket ');
+        return redirect()->route('tickets.show', $ticket->id);
+        //return redirect()->back()->withStatus();
+        //return redirect()->back()->with('Tu ticket ha sido enviado, muy pronto nos comunicaremos contigo. puedes ver el estado de tu ticket <a href="'.route('tickets.show', $ticket->id).'">aqui</a>');
     }
 
     /**
@@ -84,6 +87,7 @@ class TicketController extends Controller
 
         $ticket->sendCommentNotification($comment);
 
-        return redirect()->back()->withStatus('Tu comentario se envió correctamente');
+        alert()->success( 'Tu comentario se envio correctamente')->autoclose(4000);
+        return redirect()->back();
     }
 }

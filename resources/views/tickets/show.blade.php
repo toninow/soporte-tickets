@@ -76,11 +76,11 @@
                                 <th>
                                     {{ trans('cruds.ticket.fields.comments') }}
                                 </th>
-                                <td>
+                                <td >
                                     @forelse ($ticket->comments as $comment)
                                         <div class="row">
                                             <div class="col">
-                                                <p class="font-weight-bold"><a href="mailto:{{ $comment->author_email }}">{{ $comment->author_name }}</a> ({{ $comment->created_at }})</p>
+                                                <p class="font-weight-bold"><a style="color:#e35000" href="mailto:{{ $comment->author_email }}">{{ $comment->author_name }}</a> ({{ $comment->created_at }})</p>
                                                 <p>{{ $comment->comment_text }}</p>
                                             </div>
                                         </div>
@@ -90,7 +90,7 @@
                                     @empty
                                         <div class="row">
                                             <div class="col">
-                                                <p>No hay comentarios.</p>
+                                                <p>No existen comentarios.</p>
                                             </div>
                                         </div>
                                     @endforelse

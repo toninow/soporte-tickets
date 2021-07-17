@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-@can('permission_create')
+
+{{--@can('permission_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route("admin.permissions.create") }}">
@@ -8,7 +9,7 @@
             </a>
         </div>
     </div>
-@endcan
+@endcan--}}
 <div class="card">
     <div class="card-header">
         {{ trans('cruds.permission.title_singular') }} {{ trans('global.list') }}

@@ -109,12 +109,12 @@
                         <th>
                             {{ trans('cruds.ticket.fields.comments') }}
                         </th>
-                        <td>
+                        <td >
                             @forelse ($ticket->comments as $comment)
                                 <div class="row">
                                     <div class="col">
                                         <p class="font-weight-bold"><a href="mailto:{{ $comment->author_email }}">{{ $comment->author_name }}</a> ({{ $comment->created_at }})</p>
-                                        <p>{{ $comment->comment_text }}</p>
+                                        <p style="background-color: ">{{ $comment->comment_text }}</p>
                                     </div>
                                 </div>
                                 <hr />

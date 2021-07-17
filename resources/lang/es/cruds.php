@@ -137,7 +137,7 @@ return [
             'category_helper'         => '',
             'author_name'             => 'Nombre Autor',
             'author_name_helper'      => '',
-            'author_email'            => 'Email Autor',
+            'author_email'            => 'Email',
             'author_email_helper'     => '',
             'assigned_to_user'        => 'Asignar al Usuario',
             'assigned_to_user_helper' => '',
