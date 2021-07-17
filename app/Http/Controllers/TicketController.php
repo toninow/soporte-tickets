@@ -54,6 +54,7 @@ class TicketController extends Controller
         }
 
         return redirect()->back()->withStatus('Tu ticket ha sido enviado, muy pronto nos comunicaremos contigo. puedes ver el estado de tu ticket <a href="'.route('tickets.show', $ticket->id).'">aqui</a>');
+        //return redirect()->back()->with('eliminar ', '<a href="'.route('tickets.show', $ticket->id).'">aqui</a>');
     }
 
     /**
