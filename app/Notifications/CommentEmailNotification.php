@@ -43,7 +43,7 @@ class CommentEmailNotification extends Notification
     {
         return (new MailMessage)
                     ->subject('Nuevo comentario del ticket '.$this->comment->ticket->title)
-                    ->greeting('Hola,')
+                    ->greeting('Hola')
                     ->line('Nuevo comentario en el ticket '.$this->comment->ticket->title.':')
                     ->line('')
                     ->line(Str::limit($this->comment->comment_text, 500))
