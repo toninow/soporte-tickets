@@ -53,7 +53,7 @@
                         </th>
                         <td>
                             @foreach($ticket->attachments as $attachment)
-                                <a href="{{ $attachment->getUrl() }}" target="_blank">{{ $attachment->file_name }}</a>
+                                <a href="{{ $attachment->getUrl() }}"> <img src="{{ $attachment->getUrl() }}" style="width:20%; height: auto; margin-bottom:1%" alt=""></a>
                             @endforeach
                         </td>
                     </tr>
@@ -111,28 +111,32 @@
                         </th>
                         <td >
                             @forelse ($ticket->comments as $comment)
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="font-weight-bold"><a href="mailto:{{ $comment->author_email }}">{{ $comment->author_name }}</a> ({{ $comment->created_at }})</p>
-                                        <p style="background-color: ">{{ $comment->comment_text }}</p>
-                                    </div>
-                                </div>
-                                <hr />
-                            @empty
-                                <div class="row">
-                                    <div class="col">
-                                        <p>No existen comentarios</p>
-                                    </div>
-                                </div>
-                                <hr />
-                            @endforelse
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="font-weight-bold"><a style="color:#e35000" href="mailto:{{ $comment->author_email }}">{{ $comment->author_name }}</a> ({{ $comment->created_at }})</p>
+                                                <p>{{ $comment->comment_text }}</p>
+                                            </div>
+                                        </div>
+                                        @if(!$loop->last)
+                                            <hr />
+                                        @endif
+                                    @empty
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>No existen comentarios.</p>
+                                            </div>
+                                        </div>
+                                    @endforelse
                             <form action="{{ route('admin.tickets.storeComment', $ticket->id) }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="comment_text">Escribe tu comentario</label>
                                     <textarea class="form-control" id="comment_text" name="comment_text" rows="3" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">@lang('global.submit')</button>
+                                <button type="submit" class="btn"
+                                style="width: 100%; background-color: #e35000; color: white">
+                                <i class='fas fa-paper-plane' style="margin-right: 1%"></i> enviar
+                                </button>
                             </form>
                         </td>
                     </tr>

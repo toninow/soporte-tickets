@@ -1,11 +1,21 @@
 @extends('layouts.auth')
+<style>
+    form .form-control:focus {
+        border-color: #e35000;
+        box-shadow: none;
+    }
+</style>
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-6">
+        <div align="center">
+            <img src="{{ asset('img/logo.png') }}" style="width:60%; height: auto; margin-bottom:1%" alt="">
+        </div>
         <div class="card mx-4">
             <div class="card-body p-4">
-                <h1>{{ trans('panel.site_title') }}</h1>
-
+                <div align="center">
+                    <h1>{{ trans('panel.site_title') }}</h1>
+                </div>
                 <p class="text-muted">{{ trans('global.login') }}</p>
 
                 @if(session('status'))
@@ -58,14 +68,14 @@
 
                     <div class="row">
                         <div class="col-6">
-                            <button type="submit" class="btn btn-primary px-4">
+                            <button type="submit" class="btn btn-primary px-4" style="width: 100%; background-color: #e35000; color: white">
                                 {{ trans('global.login') }}
                             </button>
                         </div>
                         <div class="col-6 text-right">
                             @if(Route::has('password.request'))
-                                <a class="btn btn-link px-0" href="{{ route('password.request') }}">
-                                    {{ trans('global.forgot_password') }}
+                                <a class="btn btn-link px-0" href="{{ route('password.request') }}" >
+                                    Enlace reinicio contraseña
                                 </a><br>
                             @endif
 

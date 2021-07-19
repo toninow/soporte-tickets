@@ -2,6 +2,9 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-6">
+        <div align="center">
+            <img src="{{ asset('img/logo.png') }}" style="width:60%; height: auto; margin-bottom:1%" alt="">
+        </div>
         <div class="card mx-4">
             <div class="card-body p-4">
                 <h1>{{ trans('panel.site_title') }}</h1>
@@ -29,8 +32,8 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-flat btn-block">
-                                {{ trans('global.send_password') }}
+                            <button style="background-color:#e35000" type="submit" class="btn btn-primary btn-flat btn-block" style="width: 100%; background-color: #e35000; color: white">
+                                Reinicio de contraseña
                             </button>
                         </div>
                     </div>

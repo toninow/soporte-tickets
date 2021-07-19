@@ -45,7 +45,6 @@
                                     @foreach($ticket->attachments as $attachment)
                                     <a href="{{ $attachment->getUrl() }}"> <img src="{{ $attachment->getUrl() }}" style="width:40%; height: auto; margin-bottom:1%" alt=""></a>
                                     @endforeach
-
                                 </td>
                             </tr>
                             <tr>
@@ -112,7 +111,7 @@
                         <button type="submit" class="btn"
                         style="width: 100%; background-color: #e35000; color: white">
                         <i class='fas fa-paper-plane' style="margin-right: 1%"></i> enviar
-                    </button>
+                        </button>
 
                     </form>
                 </div>
