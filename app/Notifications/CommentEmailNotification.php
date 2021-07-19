@@ -49,7 +49,7 @@ class CommentEmailNotification extends Notification
                     ->line(Str::limit($this->comment->comment_text, 500))
                     ->action('Ver ticket', route(optional($notifiable)->id ? 'admin.tickets.show' : 'tickets.show', $this->comment->ticket->id))
                     ->line('Gracias')
-                    ->line(' Equipo'  . config('app.name'))
+                    ->line(' Equipo '  . config('app.name'))
                     ->salutation(' ');
     }
 }

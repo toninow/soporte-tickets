@@ -26,7 +26,7 @@ class CommentsApiController extends Controller
 
         return (new CommentResource($comment))
             ->response()
-            ->setStatusCode(Response::HTTP_CREATED);
+            ->setCode(Response::HTTP_CREATED);
     }
 
     public function show(Comment $comment)

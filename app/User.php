@@ -3,13 +3,14 @@
 namespace App;
 
 use Carbon\Carbon;
-use Hash;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use App\Notifications\ResetPasswordNotification;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -67,9 +68,15 @@ class User extends Authenticatable
         }
     }
 
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new ResetPassword($token));
+        $this->notify(new ResetPasswordNotification($token));
     }
 
     public function roles()
