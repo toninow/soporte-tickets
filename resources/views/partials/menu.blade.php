@@ -112,7 +112,7 @@ background-color:#e35000;
                     </a>
                 </li>
             @endcan
-            @can('comment_access')
+            {{-- @can('comment_access')
                 <li class="nav-item">
                     <a id="link" href="{{ route("admin.comments.index") }}" class="nav-link {{ request()->is('admin/comments') || request()->is('admin/comments/*') ? 'active' : '' }}">
                         <i style="color: white" class="fa-fw fas fa-comment nav-icon">
@@ -121,7 +121,7 @@ background-color:#e35000;
                         {{ trans('cruds.comment.title') }}
                     </a>
                 </li>
-            @endcan
+            @endcan --}}
             <li class="nav-item">
                 <a id="link" href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i style="color: white" class="nav-icon fas fa-fw fa-sign-out-alt">

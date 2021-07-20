@@ -52,7 +52,13 @@
                 <label for="status">{{ trans('cruds.ticket.fields.status') }}*</label>
                 <select name="status_id" id="status" class="form-control select2" required>
                     @foreach($statuses as $id => $status)
-                        <option value="{{ $id }}" {{ (isset($ticket) && $ticket->status ? $ticket->status->id : old('status_id')) == $id ? 'selected' : '' }}>{{ $status }}</option>
+                        <option value="{{ $id }}" {{ (isset($ticket) && $ticket->status ? $ticket->status->id : old('status_id')) == $id ? 'selected' : '' }}>
+                            @if ($status == 'Closed')
+                            Cerrado
+                            @elseif ($status == 'Open')
+                            Abierto
+                        @endif
+                        </option>
                     @endforeach
                 </select>
                 @if($errors->has('status_id'))

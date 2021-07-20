@@ -48,16 +48,21 @@ class TicketController extends Controller
             'priority_id'   => 1
         ]);
 
-        $ticket = Ticket::create($request->all());
-
-        foreach ($request->input('attachments', []) as $file) {
-            $ticket->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('attachments');
+        if (count($request->input('attachments', [])) < 3 || count($request->input('attachments', [])) == 0 ){
+            $ticket = Ticket::create($request->all());
+            foreach ($request->input('attachments', []) as $file) {
+                $ticket->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('attachments');
+            }
+            alert()->success( 'Tu ticket es el N°: '.$ticket->id, '¡Enhorabuena! '.$ticket->author_name.', ahora puedes ver el estado de tu requerimiento')->autoclose(7000);
+            return redirect()->route('tickets.show', $ticket->id);
         }
-        alert()->success( 'Tu ticket es el N°: '.$ticket->id, '¡Enhorabuena! '.$ticket->author_name.', ahora puedes ver el estado de tu requerimiento')->autoclose(7000);
-        //redirect()->with('success', 'Tu ticket ha sido enviado, puedes ver el estado de tu ticket ');
-        return redirect()->route('tickets.show', $ticket->id);
-        //return redirect()->back()->withStatus();
-        //return redirect()->back()->with('Tu ticket ha sido enviado, muy pronto nos comunicaremos contigo. puedes ver el estado de tu ticket <a href="'.route('tickets.show', $ticket->id).'">aqui</a>');
+        else
+        {
+            alert()->error( 'Solo se permite un máximo de 2 archivos')->autoclose(4000);
+            return back();
+
+        }
+
     }
 
     /**

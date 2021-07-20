@@ -3,9 +3,9 @@
 @can('status_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.statuses.create") }}">
+            {{-- <a class="btn btn-success" href="{{ route("admin.statuses.create") }}">
                 {{ trans('global.add') }} {{ trans('cruds.status.title_singular') }}
-            </a>
+            </a> --}}
         </div>
     </div>
 @endcan
@@ -46,7 +46,11 @@
                                 {{ $status->id ?? '' }}
                             </td>
                             <td>
-                                {{ $status->name ?? '' }}
+                                @if ($status->name == 'Closed')
+                                    Cerrado
+                                    @elseif ($status->name == 'Open')
+                                    Abierto
+                                @endif
                             </td>
                             <td style="background-color:{{ $status->color ?? '#FFFFFF' }}"></td>
                             <td>
