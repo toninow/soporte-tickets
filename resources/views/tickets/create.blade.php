@@ -77,6 +77,18 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="category" class="col-md-4 col-form-label text-md-right">Categoria
+                                    <strong>(*)</strong></label>
+                                    <div class="col-md-6">
+                                        <select name="category_id" id="category" class="form-control select2" required>
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="title"
                                     class="col-md-4 col-form-label text-md-right">@lang('cruds.ticket.fields.title')
                                     <strong>(*)</strong></label>

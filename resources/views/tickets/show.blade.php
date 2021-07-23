@@ -73,6 +73,23 @@
                             </tr>
                             <tr>
                                 <th>
+                                    Categoria seleccionada
+                                </th>
+                                <td>
+                                    {{ $ticket->category->name }}
+                                </td>
+                            </tr>
+                        </tr>
+                        <tr>
+                            <th>
+                                Agente
+                            </th>
+                            <td>
+                                {{ $ticket->assigned_to_user->name }}
+                            </td>
+                        </tr>
+                            <tr>
+                                <th>
                                     {{ trans('cruds.ticket.fields.comments') }}
                                 </th>
                                 <td >

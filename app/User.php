@@ -39,6 +39,8 @@ class User extends Authenticatable
         'deleted_at',
         'remember_token',
         'email_verified_at',
+        'category_assign_id'
+
     ];
 
     public function tickets()
